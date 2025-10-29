@@ -1,11 +1,11 @@
 # @ras-sh/template-convex-component
 
-📦 Convex component template with TypeScript, testing setup, and modern build tooling.
+⚡ Template for building Convex Components, sandboxed TypeScript modules that extend your backend safely.
 
 ## Features
 
 - **TypeScript** - Full type safety with modern TS features
-- **[Convex](https://convex.dev/)** - Build sandboxed TypeScript modules that extend your backend safely
+- **[Convex](https://convex.dev/)** - Realtime database and backend as a service
 - **[Vitest](https://vitest.dev/)** - Fast unit testing with coverage reports
 - **[Changesets](https://github.com/changesets/changesets)** - Automated version management and changelog generation
 - **GitHub Actions** - Automated CI/CD workflows for testing and publishing
