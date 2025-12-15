@@ -76,19 +76,19 @@
     "convex-helpers": "^0.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.2",
-    "@changesets/cli": "^2.29.7",
+    "@biomejs/biome": "^2.3.8",
+    "@changesets/cli": "^2.29.8",
     "@ras-sh/typescript-config": "^0.0.3",
     "@types/node": "^24.9.2",
-    "@vitest/coverage-v8": "^4.0.5",
+    "@vitest/coverage-v8": "^4.0.15",
     "chokidar-cli": "^3.0.0",
-    "convex": "^1.28.0",
-    "convex-helpers": "^0.1.104",
-    "convex-test": "^0.0.38",
+    "convex": "^1.31.0",
+    "convex-helpers": "^0.1.107",
+    "convex-test": "^0.0.41",
     "cpy-cli": "^6.0.0",
-    "lefthook": "^2.0.2",
+    "lefthook": "^2.0.11",
     "typescript": "^5.9.3",
-    "ultracite": "6.0.5",
-    "vitest": "^4.0.5"
+    "ultracite": "6.4.0",
+    "vitest": "^4.0.15"
   }
 }
