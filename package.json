@@ -64,7 +64,7 @@
     "test:watch": "vitest --typecheck --clearScreen false",
     "test:coverage": "vitest run --typecheck --coverage --passWithNoTests",
     "check-types": "tsc --noEmit",
-    "check": "oxlint --type-aware --deny-warnings .",
+    "check": "oxfmt --check . && oxlint --type-aware --deny-warnings .",
     "fix": "oxfmt --write . && oxlint --type-aware --fix .",
     "prepare": "npm run build",
     "changeset": "changeset",
