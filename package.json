@@ -1,11 +1,10 @@
 {
   "name": "@ras-sh/template-convex-component",
   "version": "0.0.1",
-  "type": "module",
   "description": "Template for creating Convex components",
   "keywords": [
-    "convex",
     "component",
+    "convex",
     "template"
   ],
   "homepage": "https://github.com/ras-sh/template-convex-component#readme",
@@ -13,16 +12,24 @@
     "url": "https://github.com/ras-sh/template-convex-component/issues",
     "email": "hi@ras.sh"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ras-sh/template-convex-component"
-  },
   "license": "MIT",
   "author": {
     "name": "Richard Solomou",
     "email": "hi@ras.sh",
     "url": "https://ras.sh"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ras-sh/template-convex-component"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "type": "module",
+  "main": "./dist/client/index.js",
+  "module": "./dist/client/index.js",
+  "types": "./dist/client/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -47,48 +54,47 @@
     },
     "./test": "./src/test.ts"
   },
-  "main": "./dist/client/index.js",
-  "module": "./dist/client/index.js",
-  "types": "./dist/client/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json && npm run copy:dts",
     "copy:dts": "rsync -a --include='*/' --include='*.d.ts' --exclude='*' src/ dist/ || cpy 'src/**/*.d.ts' 'dist/' --parents",
     "build:watch": "npx chokidar 'tsconfig*.json' 'src/**/*.ts' -i '**/*.test.ts' -c 'npm run build' --initial",
     "dev:backend": "convex dev --live-component-sources --typecheck-components",
     "clean": "rm -rf dist *.tsbuildinfo node_modules/.cache",
-    "test": "vitest run --typecheck",
+    "test": "vitest run --typecheck --passWithNoTests",
     "test:watch": "vitest --typecheck --clearScreen false",
-    "test:coverage": "vitest run --typecheck --coverage",
+    "test:coverage": "vitest run --typecheck --coverage --passWithNoTests",
     "check-types": "tsc --noEmit",
-    "check": "ultracite check",
-    "fix": "ultracite fix --unsafe",
+    "check": "oxlint --type-aware --deny-warnings .",
+    "fix": "oxfmt --write . && oxlint --type-aware --fix .",
     "prepare": "npm run build",
     "changeset": "changeset",
     "changeset:version": "changeset version",
-    "changeset:publish": "npm run clean && npm ci && npm run test && npm run check && npm run check-types && changeset publish"
+    "changeset:publish": "npm run clean && npm ci && npm run test && npm run check && npm run check-types && changeset publish",
+    "policy:check": "ras-stack-policy check"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.1",
+    "@types/node": "^26.2.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "chokidar-cli": "^3.0.0",
+    "convex": "^1.43.0",
+    "convex-helpers": "^0.1.122",
+    "convex-test": "^0.0.55",
+    "cpy-cli": "^7.0.0",
+    "lefthook": "^2.1.10",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "ras-stack": "^0.8.2",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   },
   "peerDependencies": {
     "convex": "^1.0.0",
     "convex-helpers": "^0.1.0"
   },
-  "devDependencies": {
-    "@biomejs/biome": "^2.3.2",
-    "@changesets/cli": "^2.29.7",
-    "@ras-sh/typescript-config": "^0.0.3",
-    "@types/node": "^24.9.2",
-    "@vitest/coverage-v8": "^4.0.5",
-    "chokidar-cli": "^3.0.0",
-    "convex": "^1.28.0",
-    "convex-helpers": "^0.1.104",
-    "convex-test": "^0.0.38",
-    "cpy-cli": "^6.0.0",
-    "lefthook": "^2.0.2",
-    "typescript": "^5.9.3",
-    "ultracite": "6.0.5",
-    "vitest": "^4.0.5"
-  }
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "packageManager": "pnpm@11.15.0"
 }
