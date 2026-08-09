@@ -11,7 +11,7 @@ export function useListTodos(args?: { completedOnly?: boolean }) {
       { completedOnly?: boolean },
       Todo[]
     >,
-    args ?? {}
+    args ?? {},
   );
 }
 
@@ -23,7 +23,7 @@ export function useGetTodo(args: { id: string }) {
       { id: string },
       Todo | null
     >,
-    args
+    args,
   );
 }
 
@@ -35,7 +35,7 @@ export function useCreateTodo() {
       "public",
       { text: string },
       string
-    >
+    >,
   );
 }
 
@@ -46,7 +46,7 @@ export function useUpdateTodo() {
       "public",
       { id: string; text: string },
       null
-    >
+    >,
   );
 }
 
@@ -57,7 +57,7 @@ export function useToggleTodo() {
       "public",
       { id: string },
       null
-    >
+    >,
   );
 }
 
@@ -68,7 +68,7 @@ export function useRemoveTodo() {
       "public",
       { id: string },
       null
-    >
+    >,
   );
 }
 
@@ -80,13 +80,8 @@ export function useCreateTodoWithValidation() {
       "public",
       { text: string },
       { id: string; isValid: boolean; message: string }
-    >
+    >,
   );
 }
 
-export type {
-  ComponentOptions,
-  CreateTodoData,
-  Todo,
-  UpdateTodoData,
-} from "../client/types.js";
+export type { ComponentOptions, CreateTodoData, Todo, UpdateTodoData } from "../client/types.js";

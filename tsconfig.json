@@ -1,5 +1,5 @@
 {
-  "extends": "@ras-sh/typescript-config/base.json",
+  "extends": "ras-stack/config/typescript/library",
   "compilerOptions": {
     "jsx": "react-jsx",
     "composite": true,

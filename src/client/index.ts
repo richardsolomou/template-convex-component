@@ -1,19 +1,10 @@
 import type { api } from "../component/_generated/api.js";
-import type {
-  RunActionCtx,
-  RunMutationCtx,
-  RunQueryCtx,
-  UseApi,
-} from "../shared.js";
-import type {
-  ComponentOptions,
-  CreateTodoData,
-  UpdateTodoData,
-} from "./types.js";
+import type { RunActionCtx, RunMutationCtx, RunQueryCtx, UseApi } from "../shared.js";
+import type { ComponentOptions, CreateTodoData, UpdateTodoData } from "./types.js";
 
 export class Component {
   component: UseApi<typeof api>;
-  options?: ComponentOptions;
+  options: ComponentOptions | undefined;
 
   constructor(component: UseApi<typeof api>, options?: ComponentOptions) {
     this.component = component;
@@ -22,9 +13,10 @@ export class Component {
 
   // Queries
   async list(ctx: RunQueryCtx, completedOnly?: boolean) {
-    const todos = await ctx.runQuery(this.component.lib.list, {
-      completedOnly,
-    });
+    const todos = await ctx.runQuery(
+      this.component.lib.list,
+      completedOnly === undefined ? {} : { completedOnly },
+    );
     return todos;
   }
 
@@ -58,19 +50,11 @@ export class Component {
 
   // Actions
   async createWithValidation(ctx: RunActionCtx, text: string) {
-    const result = await ctx.runAction(
-      this.component.lib.createWithValidation,
-      {
-        text,
-      }
-    );
+    const result = await ctx.runAction(this.component.lib.createWithValidation, {
+      text,
+    });
     return result;
   }
 }
 
-export type {
-  ComponentOptions,
-  CreateTodoData,
-  Todo,
-  UpdateTodoData,
-} from "./types.js";
+export type { ComponentOptions, CreateTodoData, Todo, UpdateTodoData } from "./types.js";
