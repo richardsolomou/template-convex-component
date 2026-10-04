@@ -72,21 +72,21 @@
     "changeset:publish": "npm run clean && npm ci && npm run test && npm run check && npm run check-types && changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^3.0.0",
-    "@types/node": "^26.2.0",
-    "@vitest/coverage-v8": "^4.1.10",
+    "@changesets/cli": "^3.0.3",
+    "@types/node": "^26.6.3",
+    "@vitest/coverage-v8": "^5.0.2",
     "chokidar-cli": "^3.0.0",
-    "convex": "^1.43.0",
-    "convex-helpers": "^0.1.122",
-    "convex-test": "^0.0.55",
+    "convex": "^1.46.0",
+    "convex-helpers": "^0.1.124",
+    "convex-test": "^0.0.60",
     "cpy-cli": "^7.0.0",
-    "lefthook": "^2.1.10",
-    "oxfmt": "^0.63.0",
-    "oxlint": "^1.78.0",
-    "oxlint-tsgolint": "^7.0.2001",
+    "lefthook": "^2.1.14",
+    "oxfmt": "^0.70.0",
+    "oxlint": "^1.85.0",
+    "oxlint-tsgolint": "^7.0.2003",
     "ras-stack-config": "^1.0.0",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.10"
+    "vitest": "^5.0.2"
   },
   "peerDependencies": {
     "convex": "^1.0.0",
